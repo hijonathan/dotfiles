@@ -1,0 +1,9 @@
+[user]
+	name = Jonathan Kim
+	email = me@jonathan-kim.com
+[hub]
+	host = github.com
+[rerere]
+	enabled = 1
+[github]
+	user = hijonathan

@@ -1,0 +1,16 @@
+
+# A list of all the current static projects you are working on
+static_projects:
+  - ~/dev/hubspot/python/django_projects/example_web
+
+# Port for the static daemon to run on (3333 by default)
+# port: 3333
+
+# Restrict precompilation to a single project (to speed up building)
+# restrict_precompilation_to: example_web
+
+# Turn on live reload (on by default)... not 100% finished yet, still requires you to run guard separately
+# live_reload: Yes
+
+# Preload style_guide bundle on startup (on by default)
+# preload_style_guide_bundle: true
