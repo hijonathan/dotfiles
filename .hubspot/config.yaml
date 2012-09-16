@@ -1,7 +1,12 @@
 
 # A list of all the current static projects you are working on
 static_projects:
-  - ~/dev/hubspot/python/django_projects/example_web
+  - ~/Sites/hubspot/Social/social_web
+  - ~/Sites/hubspot/Social/social_shared_static
+  - ~/Sites/hubspot/Social/social_publishing_app
+  - ~/Sites/hubspot/Social/social_reach
+
+  # - ~/Sites/hubspot/style_guide
 
 # Port for the static daemon to run on (3333 by default)
 # port: 3333
