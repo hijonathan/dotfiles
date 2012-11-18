@@ -1,10 +1,9 @@
 export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="minimal"
-plugins=(git chpwd)
+plugins=(git chpwd pip hubpip alive)
 source $ZSH/oh-my-zsh.sh
 
-
-export PATH=~/.local/bin/:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:$PATH
+export PATH=~/.local/bin/:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/X11/bin:$PATH
 
 export NODE_PATH=/usr/local/lib/node
 
@@ -20,19 +19,25 @@ export PATH=$NAVE_PATH:$PATH
 export HS_SETTINGS_CLASS=EmptySettings
 #export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
+alias gitfig='git config -l'
+alias git=hub
+if type compdef >/dev/null; then
+   compdef hub=git
+fi
+
 # Prevent git tab-autocomplete from being super slow
 # From: http://talkings.org/post/5236392664/zsh-and-slow-git-completion
 __git_files () {
     _wanted files expl 'local files' _files
 }
 
-alias gitfig='git config -l'
-alias git='hub'
+alias hubspot='fab -f $PROJECT_HOME/hubspot/workstation_setup/fabfile.py'
+alias hstatic='cd $PROJECT_HOME/hubspot/hubspot_static_daemon/'
+alias hstaticrun='hstatic && ./hs-static run'
+alias hstaticupdate='hstatic && ./hs-static update_deps'
 
-alias hubspot='fab -f $PROJECT_HOME/hubspot/github/workstation_setup/fabfile.py'
-alias hstatic='cd $PROJECT_HOME/hubspot/github/hubspot_static_daemon/'
-alias hstaticrun='!sh -c "hstatic && ./hs-static run"'
-alias hstaticupdate='!sh -c "hstatic && ./hs-static update_deps"'
+alias ship='fab deploy:social_web -u jkim'
+alias shipp='fab deploy:social_web,hs_env=prod -u jkim'
 
 alias runs='python manage.py runserver 0.0.0.0:8000'
 alias running='python manage.py runserver'

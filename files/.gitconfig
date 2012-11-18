@@ -1,0 +1,47 @@
+[user]
+    name = Jonathan Kim
+    email = me@jonathan-kim.com
+
+[hub]
+    host = github.com
+
+[rerere]
+    enabled = 1
+
+[alias]
+    co = checkout
+    br = branch
+    s = status -sb
+    st = status
+    ci = commit
+    c = commit -am
+
+    put = push origin HEAD
+    get = !git pull && git submodule init && git submodule update
+
+    rmbr = !sh -c 'git branch -D "$0" && git push origin ":$0"'
+
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+
+[github]
+    user = hijonathan
+
+[url "git@github.com:"]
+    insteadOf = "gh:"
+    pushInsteadOf = "github:"
+    pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+    insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+    insteadOf = "gst:"
+    pushInsteadOf = "gist:"
+    pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+    insteadOf = "gist:"
+[push]
+    default = upstream
+[core]
+    exludesfile = /Users/jonathankim/.gitignore_global
