@@ -1,4 +1,6 @@
 import os
+from optparse import OptionParser
+
 
 HOME_DIR = '/Users/jonathankim'
 FILES_TO_IGNORE = [
@@ -6,15 +8,18 @@ FILES_TO_IGNORE = [
 ]
 
 
+dotfiles_dir = os.path.join(os.getcwd(), 'files')
+backup_dir = os.path.join(os.getcwd(), 'backup')
+
+
 def sync():
     dotfiles = filter(lambda x: x not in FILES_TO_IGNORE, os.listdir('files'))
-    dotfiles_dir = os.path.join(os.getcwd(), 'files')
 
     for file_name in dotfiles:
         dotfile_path = os.path.join(dotfiles_dir, file_name)
         home_path = get_file_path(file_name)
 
-        backup_existing(home_path)
+        copy_existing(home_path, backup_dir)
         remove_existing(home_path)
 
         make_symlink(dotfile_path, home_path)
@@ -25,22 +30,21 @@ def get_file_path(file_name):
     return os.path.join(HOME_DIR, os.path.join(*path_parts))
 
 
-def backup_existing(source_path):
-    backup_dir = os.path.join(os.getcwd(), 'backup')
-    if not os.path.exists(backup_dir) or not os.path.isdir(backup_dir):
-        os.mkdir(backup_dir)
-        print ('INFO: Created new backup dir at %s') % backup_dir
+def copy_existing(source_path, destination_path):
+    if not os.path.exists(destination_path) or not os.path.isdir(destination_path):
+        os.mkdir(destination_path)
+        print ('INFO: Created new dir at %s') % destination_path
 
     contents = ''
     with open(source_path) as f:
         contents = f.read()
 
-    backup_file_name = make_file_name(source_path)
-    backup_file_path = os.path.join(backup_dir, backup_file_name)
-    with open(backup_file_path, 'w') as f:
+    copied_file_name = make_file_name(source_path)
+    copied_file_path = os.path.join(destination_path, copied_file_name)
+    with open(copied_file_path, 'w') as f:
         f.write(contents)
 
-    print ('INFO: Backed up %s as %s') % (source_path, backup_file_path)
+    print ('INFO: Copied %s as %s') % (source_path, copied_file_path)
 
     return
 
@@ -63,6 +67,20 @@ def make_symlink(source_path, target_path):
     except:
         print ('FAILURE: Couldn\'t symlink %s and %s' % (source_path, target_path))
         pass
+
+    return
+
+
+# TODO: Hook this up to a script
+def add_file():
+    parser = OptionParser()
+    (options, args) = parser.parse_args()
+
+    if len(args) < 1:
+        print "Provide the file path of the file you'd like to sync"
+    else:
+        source_file = args[0]
+        copy_existing(source_file, dotfiles_dir)
 
     return
 
