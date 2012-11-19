@@ -1,6 +1,4 @@
 import os
-import logging
-lg = logging.getLogger('Dotfiles Sync')
 
 HOME_DIR = '/Users/jonathankim'
 FILES_TO_IGNORE = [
