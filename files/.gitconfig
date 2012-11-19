@@ -11,17 +11,26 @@
 [alias]
     co = checkout
     br = branch
+    brs = branch -a
     s = status -sb
     st = status
     ci = commit
     c = commit -am
 
-    put = push origin HEAD
     get = !git pull && git submodule init && git submodule update
+    up = fetch -p origin
+    send = !sh -c 'git push -u origin "$0"'
 
-    rmbr = !sh -c 'git branch -D "$0" && git push origin ":$0"'
+    rmbr = !sh -c 'git branch -D "$0" && git push origin --delete "$0"'
 
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    yesterday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --before=12am --after=12am.yesterday --author=me --branches
+    today = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --after=12am --author=me --branches
+
+    new = checkout -b
+    save = stash --patch
+
+    clear = !git reset --hard HEAD && git clean -fd
 
 [github]
     user = hijonathan
@@ -43,5 +52,9 @@
     insteadOf = "gist:"
 [push]
     default = upstream
+
+[color]
+    diff = auto
+
 [core]
     exludesfile = /Users/jonathankim/.gitignore_global
