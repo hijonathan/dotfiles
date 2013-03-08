@@ -57,4 +57,4 @@
     diff = auto
 
 [core]
-    exludesfile = /Users/jonathankim/.gitignore_global
+    excludesfile = /Users/jonathankim/.gitignore_global
