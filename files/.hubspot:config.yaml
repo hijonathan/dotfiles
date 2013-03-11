@@ -2,13 +2,12 @@
 # A list of all the current static projects you are working on
 static_projects:
   - ~/Sites/hubspot/Social/social_web
-  - ~/Sites/hubspot/Social/social_shared_static
+  - ~/Sites/hubspot/Social/social_shared
+  - ~/Sites/hubspot/Social/social_monitoring
   - ~/Sites/hubspot/Social/social_publishing_app
   - ~/Sites/hubspot/Social/social_reach
   - ~/Sites/hubspot/style_guide
   - ~/Sites/hubspot/common_assets
-  - ~/Sites/hubspot/internal_email/internal_email_web
-  - ~/Sites/hubspot/settings_plus_web
 
 
 # Port for the static daemon to run on (3333 by default)
