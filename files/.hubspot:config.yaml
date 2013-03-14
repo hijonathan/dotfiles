@@ -8,6 +8,7 @@ static_projects:
   - ~/Sites/hubspot/Social/social_reach
   - ~/Sites/hubspot/style_guide
   - ~/Sites/hubspot/common_assets
+  - ~/Sites/hubspot/pictos
 
 
 # Port for the static daemon to run on (3333 by default)

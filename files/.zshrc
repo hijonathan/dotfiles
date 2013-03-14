@@ -36,8 +36,8 @@ alias hstatic='cd $PROJECT_HOME/hubspot/hubspot_static_daemon/'
 alias hstaticrun='hstatic && ./hs-static run'
 alias hstaticupdate='hstatic && ./hs-static update_deps'
 
-alias ship='fab deploy:social_web -u jkim'
-alias shipp='fab deploy:social_web,hs_env=prod -u jkim'
+alias ship='deployer deploy:social_web -u jkim'
+alias shipp='deployer deploy:social_web,hs_env=prod -u jkim'
 
 alias runs='python manage.py runserver 0.0.0.0:8000'
 alias running='python manage.py runserver'
@@ -53,3 +53,4 @@ alias zshupdate='source ~/.zshrc'
 . $HOME/.oh-my-zsh/plugins/z/z.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+alias deployer='/Users/jonathankim/Sites/hubspot/fabric_deploy/.virtualenv/bin/deployer'
