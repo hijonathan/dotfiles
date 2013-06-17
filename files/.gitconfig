@@ -16,21 +16,30 @@
     st = status
     ci = commit
     c = commit -am
+    cim = commit -m
+    amend = !git log --pretty=%B -1 | git commit -F - --amend
+    addi = add -i
+    a = add $(git rev-parse --show-toplevel)
 
     get = !git pull && git submodule init && git submodule update
     up = fetch -p origin
-    send = !sh -c 'git push -u origin "$0"'
+    send = push -u origin HEAD
 
     rmbr = !sh -c 'git branch -D "$0" && git push origin --delete "$0"'
 
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    yesterday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --before=12am --after=12am.yesterday --author=me --branches
-    today = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --after=12am --author=me --branches
+    yesterday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --before=12am --after=12am.yesterday --author="Jonathan" --branches
+    today = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --after=12am --author="Jonathan" --branches
 
     new = checkout -b
     save = stash --patch
+    stashes = stash list
+    stashed = stash show -p
+    rmstash = stash drop
 
+    undo = reset --hard HEAD~1
     clear = !git reset --hard HEAD && git clean -fd
+    catchup = reset origin
 
 [github]
     user = hijonathan
