@@ -6,10 +6,18 @@ static_projects:
   - ~/Sites/hubspot/Social/social_monitoring
   - ~/Sites/hubspot/Social/social_publishing_app
   - ~/Sites/hubspot/Social/social_reach
+  - ~/Sites/hubspot/Social/social_settings
   - ~/Sites/hubspot/style_guide
   - ~/Sites/hubspot/common_assets
-  - ~/Sites/hubspot/pictos
-
+#  - ~/Sites/hubspot/datatables
+#  - ~/Sites/hubspot/jquery-tags-input
+#  - ~/Sites/hubspot/pictos
+#  - ~/Sites/hubspot/settings_plus_web
+#  - ~/Sites/hubspot/select2
+#  - ~/Sites/hubspot/chosen
+#  - ~/Sites/hubspot/HapiJS
+#  - ~/Sites/hubspot/content_vendor
+#  - ~/Sites/hubspot/style_guide_doc
 
 # Port for the static daemon to run on (3333 by default)
 # port: 3333

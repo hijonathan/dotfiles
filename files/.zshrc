@@ -19,6 +19,8 @@ export PATH=$NAVE_PATH:$PATH
 export HS_SETTINGS_CLASS=EmptySettings
 #export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH
 
+alias hero=heroku
+
 alias gitfig='git config -l'
 alias git=hub
 if type compdef >/dev/null; then
@@ -36,14 +38,18 @@ alias hstatic='cd $PROJECT_HOME/hubspot/hubspot_static_daemon/'
 alias hstaticrun='hstatic && ./hs-static run'
 alias hstaticupdate='hstatic && ./hs-static update_deps'
 
-alias ship='deployer deploy:social_web -u jkim'
-alias shipp='deployer deploy:social_web,hs_env=prod -u jkim'
+alias ship='deployer deploy:social_web,loglevel=warn -u jkim'
+alias shipit='deployer deploy:social_web,loglevel=warn,hs_env=prod -u jkim'
 
 alias runs='python manage.py runserver 0.0.0.0:8000'
 alias running='python manage.py runserver'
 
+alias bstack='java -jar ~/dev/BrowserStackTunnel.jar sFiLWrpJsdgTPZwLz8zu localhost,8000,0,local.app.hubspotqa.com,443,1,local.app.hubspot.com,443,1,localhost,3333,0'
+
 # pip uninstall ALL THE THINGS
 alias pipdump='pip freeze | xargs -n1 pip uninstall -y'
+
+alias reveal='open -R'
 
 alias zshedit='vim ~/.zshrc'
 alias zshupdate='source ~/.zshrc'
