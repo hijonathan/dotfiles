@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="minimal"
-plugins=(git chpwd pip hubpip alive)
+export ZSH_THEME="jonathan"
+plugins=(git chpwd pip hubpip alive stashgrep ship)
 source $ZSH/oh-my-zsh.sh
 
 export PATH=~/.local/bin/:/usr/local/bin:/usr/local/sbin:/usr/local/git/bin:/usr/X11/bin:$PATH
@@ -21,7 +21,11 @@ export HS_SETTINGS_CLASS=EmptySettings
 
 alias hero=heroku
 
-alias gitfig='git config -l'
+alias deployer='/Users/jonathankim/Sites/hubspot/fabric_deploy/.virtualenv/bin/deployer'
+shippable=(social_web monitoring_breakfast social_sandbox)
+compctl -k shippable ship
+compctl -k shippable shipit
+
 alias git=hub
 if type compdef >/dev/null; then
    compdef hub=git
@@ -38,13 +42,13 @@ alias hstatic='cd $PROJECT_HOME/hubspot/hubspot_static_daemon/'
 alias hstaticrun='hstatic && ./hs-static run'
 alias hstaticupdate='hstatic && ./hs-static update_deps'
 
-alias ship='deployer deploy:social_web,loglevel=warn -u jkim'
-alias shipit='deployer deploy:social_web,loglevel=warn,hs_env=prod -u jkim'
+alias blanket='workon fabric_deploy && hubspot blanket_test:$PROJECT_HOME/hubspot/Social/blanket_test.json'
+alias blanketprod='workon fabric_deploy && hubspot blanket_test:$PROJECT_HOME/hubspot/Social/blanket_test.json,hs_env=prod'
 
 alias runs='python manage.py runserver 0.0.0.0:8000'
 alias running='python manage.py runserver'
 
-alias bstack='java -jar ~/dev/BrowserStackTunnel.jar sFiLWrpJsdgTPZwLz8zu localhost,8000,0,local.app.hubspotqa.com,443,1,local.app.hubspot.com,443,1,localhost,3333,0'
+alias bstack='java -jar ~/dev/BrowserStackTunnel.jar sFiLWrpJsdgTPZwLz8zu localhost,8000,0,local.hubspotqa.com,443,1,local.hubspot.com,443,1,localhost,3333,0'
 
 # pip uninstall ALL THE THINGS
 alias pipdump='pip freeze | xargs -n1 pip uninstall -y'
@@ -59,4 +63,3 @@ alias zshupdate='source ~/.zshrc'
 . $HOME/.oh-my-zsh/plugins/z/z.sh
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-alias deployer='/Users/jonathankim/Sites/hubspot/fabric_deploy/.virtualenv/bin/deployer'

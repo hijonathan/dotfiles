@@ -30,6 +30,7 @@
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
     yesterday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --before=12am --after=12am.yesterday --author="Jonathan" --branches
     today = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative --after=12am --author="Jonathan" --branches
+    family = !git fetch --tags && git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
     new = checkout -b
     save = stash --patch
@@ -40,6 +41,8 @@
     undo = reset --hard HEAD~1
     clear = !git reset --hard HEAD && git clean -fd
     catchup = reset origin
+
+    fig = config -l
 
 [github]
     user = hijonathan
@@ -59,6 +62,7 @@
 
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
+
 [push]
     default = upstream
 
@@ -67,3 +71,6 @@
 
 [core]
     excludesfile = /Users/jonathankim/.gitignore_global
+
+[diff]
+    algorithm = patience

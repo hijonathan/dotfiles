@@ -4,11 +4,16 @@ static_projects:
   - ~/Sites/hubspot/Social/social_web
   - ~/Sites/hubspot/Social/social_shared
   - ~/Sites/hubspot/Social/social_monitoring
+  - ~/Sites/hubspot/Social/monitoring_breakfast
   - ~/Sites/hubspot/Social/social_publishing_app
   - ~/Sites/hubspot/Social/social_reach
   - ~/Sites/hubspot/Social/social_settings
-  - ~/Sites/hubspot/style_guide
-  - ~/Sites/hubspot/common_assets
+  - ~/Sites/hubspot/Social/social_composer
+  - ~/Sites/hubspot/social_sandbox
+#  - ~/Sites/hubspot/stethoscope
+#  - ~/Sites/hubspot/style_guide
+#  - ~/Sites/hubspot/common_assets
+  - ~/Sites/hubspot/jasmine
 #  - ~/Sites/hubspot/datatables
 #  - ~/Sites/hubspot/jquery-tags-input
 #  - ~/Sites/hubspot/pictos
@@ -16,8 +21,16 @@ static_projects:
 #  - ~/Sites/hubspot/select2
 #  - ~/Sites/hubspot/chosen
 #  - ~/Sites/hubspot/HapiJS
+#  - ~/Sites/hubspot/enviro
 #  - ~/Sites/hubspot/content_vendor
 #  - ~/Sites/hubspot/style_guide_doc
+#  - ~/Sites/hubspot/Bucky
+#  - ~/Sites/hubspot/Mixer
+#  - ~/Sites/hubspot/Bill
+#  - ~/Sites/hubspot/breakfast/breakfast
+#  - ~/Sites/hubspot/Reagan
+#  - ~/Sites/hubspot/Buttercream
+#  - ~/Sites/hubspot/FireAlarm
 
 # Port for the static daemon to run on (3333 by default)
 # port: 3333
