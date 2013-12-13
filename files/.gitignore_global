@@ -4,3 +4,4 @@
 *.pyc
 .sass-cache/
 *.egg-info
+npm-debug.log
