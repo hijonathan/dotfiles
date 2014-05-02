@@ -1,5 +1,8 @@
+[core]
+    excludesfile = /Users/jonathankim/.gitignore_global
+
 [user]
-    name = Jonathan Kim
+	name = Jonathan Kim
     email = me@jonathan-kim.com
 
 [hub]
@@ -24,6 +27,7 @@
     get = !git pull && git submodule init && git submodule update
     up = fetch -p origin
     send = push -u origin HEAD
+    pr = pull-request
 
     rmbr = !sh -c 'git branch -D "$0" && git push origin --delete "$0"'
 
@@ -41,7 +45,9 @@
     undo = reset --hard HEAD~1
     clear = !git reset --hard HEAD && git clean -fd
     catchup = reset origin
+    unstage = reset --
 
+    remotes = remote -v
     fig = config -l
 
 [github]
@@ -69,10 +75,16 @@
 [color]
     diff = auto
 
-[core]
-    excludesfile = /Users/jonathankim/.gitignore_global
-
 [diff]
     algorithm = patience
 [heroku]
-	account = work
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[heroku]
+	account = appcues
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

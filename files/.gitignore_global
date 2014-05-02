@@ -5,3 +5,6 @@
 .sass-cache/
 *.egg-info
 npm-debug.log
+.venv
+.ruby-version
+.wercker
